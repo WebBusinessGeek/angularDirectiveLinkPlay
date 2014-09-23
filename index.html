@@ -4,22 +4,27 @@
 
 			<title>Directive Linking Function</title>
 			<meta charset="utf-8">
-
+			
+			
 
 	</head>
 
-	<body>
+	<body ng-app="app">
+
+		<div ng-controller="dogController">
+
+		<input type="text" ng-model="name">{{name}}
 
 
+		<div dog-directive> this is some content</div>
 
 
-
-
+		</div>
 
 		<!-- add angular to the page and bring in the app.js file -->
 
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" />
-		<script src="app.js"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+			<script src="app.js"></script>
 
 	</body>
 
