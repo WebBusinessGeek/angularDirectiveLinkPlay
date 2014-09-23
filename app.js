@@ -22,7 +22,10 @@ app.controller('dogController',function($scope){
 app.directive('dogDirective',function(){
 	return function(scope, element, attrs){
 		element.bind('mouseenter',function(){
-			alert('I am in you');
+			element.text('I am in you');
+		})
+		element.bind('mouseleave',function(){
+			element.text('I have left you');
 		})
 	}
 })
