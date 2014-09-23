@@ -1,31 +1,49 @@
 var app = angular.module('app', []);
 
 
-app.controller('dogController',function($scope){
+app.controller('someController',function($scope){
 	
-	$scope.dogs = [
-		{breed:'pitbull', name:'rocky'},
-		{breed:'golden retriever', name: 'chance'},
-		{breed:'bulldog', name: 'Professor G'}
-	]
-
-	$scope.owners = [
-		{name:'Kevin', age:'26'},
-		{name:'Carl', age:'34'},
-		{name:'Mitchell', age:'22'}
-	]
+	
+	$scope.stuff = 'Stuff';
 
 
 });
 
-
-app.directive('dogDirective',function(){
-	return function(scope, element, attrs){
-		element.bind('mouseenter',function(){
-			element.text('I am in you');
-		})
-		element.bind('mouseleave',function(){
-			element.text('I have left you');
-		})
+app.directive('scopeUse', function(){
+	return{
+		restrict: 'E',
+		template: '<p>The $scope.stuff was manipulated to {{stuff}} using scope in the link function',
+		link: function(scope){
+		scope.stuff = 'MoreStuff';
+		}
 	}
+	
+	
+})
+
+app.directive('elementUse',function(){
+	return{
+		restrict: 'E',
+		template: '<p>To see link function\'s element argument use, click on any word in this sentence.</p>',
+		link: function(scope, element){
+			element.bind('click',function(){
+				element.text('You clicked me!');
+			})
+		}
+
+	}
+})
+
+app.directive('attrsUse', function(){
+	return {
+		restrict: 'E',
+		template: '<button class="btn btn-primary">Click me to see what you typed.</button>',
+		link: function(scope, element, attrs){
+			element.bind('click', function(){
+				alert(attrs.attribute);
+			})
+		}
+	}
+
+	
 })

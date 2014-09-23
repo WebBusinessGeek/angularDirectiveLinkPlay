@@ -11,13 +11,19 @@
 
 	<body ng-app="app">
 
-		<div ng-controller="dogController">
+		<div ng-controller="someController">
 
-		<input type="text" ng-model="name">{{name}}
+		<h4> Use of scope within the link function</h4>
+		<scope-use></scope-use>
+
+		<h4> Use of element within the link function</h4>
+		<element-use></element-use>
 
 
-		<div dog-directive> this is some content</div>
+		<h4> Use of element and attrs within the link function</h4>
+		<input type="text" class="form-control" ng-model="value"/> 
 
+		<attrs-use attribute="{{value}}"></attrs-use>
 
 		</div>
 
@@ -25,6 +31,19 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 			<script src="app.js"></script>
+
+		<!-- add Twitter Bootstrap so its not so ugly -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		
+
 
 	</body>
 
